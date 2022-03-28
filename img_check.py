@@ -41,7 +41,8 @@ def extract_meta(path, n, valid_image, successful_date_changes):
                     globals.successful_date_changes += 1
 
                     # BASH code to timestamp the file
-                    bashCommand = '#Timestamp Code Goes Here'
+                    stamp = image.get('datetime_original')
+                    bashCommand = 'touch -a -m -t ' + stamp + n
                     print(bashCommand)
                     # process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
                     # output, error = process.communicate()
