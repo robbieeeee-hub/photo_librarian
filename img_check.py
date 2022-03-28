@@ -46,10 +46,10 @@ def extract_meta(path, n, valid_image, successful_date_changes):
                     month = stamp[5:7]
                     day = stamp[8:10]
                     time = stamp[11:19]
-                    timestamp = year + ":" + month + ":" + day + " " + time
+                    timestamp = year + "-" + month + "-" + day + " " + time
                     print(timestamp)
 
-                    bashCommand = 'sudo touch -m ' + stamp + " " + n
+                    bashCommand = 'sudo touch -d ' + stamp + " " + n
                     print(bashCommand)
                     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
                     output, error = process.communicate()
