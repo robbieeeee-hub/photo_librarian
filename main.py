@@ -24,9 +24,10 @@ class TextColours:
 #path_to_photos = '/home/ubuntu/Scripts/test/'
 #path_to_photos = 'Photos/'
 #path_to_photos = '/home/ubuntu/Samba/Photos/'
-path_to_photos = '/Volumes/File Server/Photos/'
 
 #path_to_videos = 'Videos/'
+
+path_to_photos = '/Volumes/File Server/Photos/'
 path_to_videos = '/Volumes/File Server/Videos/'
 path_to_corrupted = '/Volumes/File Server/Corrupted/'
 path_to_other = '/Volumes/File Server/Other/'
@@ -75,6 +76,10 @@ for n in photos:
             print(f"{n} is {TextColours.FAIL}possibly NOT a valid video or image!{TextColours.RESET} Moved to ./other")
             # BASH code to move to ./other
 
+            bashCommand = "mv -v $path $path_to_other"
+            print(bashCommand)
+            # process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
+            # output, error = process.communicate()
 
 
 ruler_underline("=")
