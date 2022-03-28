@@ -18,6 +18,7 @@ class TextColours:
     FAIL = '\033[91m'  # RED
     RESET = '\033[0m'  # RESET COLOR
 
+
 #############################################################
 # Variables
 
@@ -41,6 +42,7 @@ paragraph_width = 80
 
 def ruler_underline(ruler):
     print(ruler*paragraph_width)
+
 
 #############################################################
 # The Program
