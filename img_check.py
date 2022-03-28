@@ -23,7 +23,7 @@ def extract_meta(path, n, valid_image, successful_date_changes):
 
     images = [photo_file]
 
-    try:  # Incase the file is corrupt or unreadable by exif
+    try:  # In case the file is corrupt or unreadable by exif
         for index, image in enumerate(images):
 
             if image.has_exif:
@@ -38,6 +38,10 @@ def extract_meta(path, n, valid_image, successful_date_changes):
                     print(f"{TextColours.OK}File Creation Time: Re-stamped{TextColours.RESET}")
                     globals.successful_date_changes += 1
                     # BASH code to timestamp the file
+                    bashCommand = "Timestamp Code Goes Here"
+                    print(bashCommand)
+                    # process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
+                    # output, error = process.communicate()
             else:
                 print(f"Filename:                {n}")
                 print(f"No EXIF information found. No action taken.")
@@ -46,7 +50,10 @@ def extract_meta(path, n, valid_image, successful_date_changes):
     except:
         print(f"{n} could be a {TextColours.FAIL}CORRUPTED FILE!{TextColours.RESET}")
         # BASH code to move the corrupted file to ./corrupted
-
+        bashCommand = "mv -v $path $path_to_videos"
+        print(bashCommand)
+        # process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
+        # output, error = process.communicate()
 
     return globals.valid_image
     return globals.successful_date_changes

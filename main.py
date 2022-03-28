@@ -26,8 +26,10 @@ class TextColours:
 #path_to_photos = '/home/ubuntu/Samba/Photos/'
 path_to_photos = '/Volumes/File Server/Photos/'
 
-path_to_videos = 'Videos/'
-#path_to_videos = '/Volumes/File Server/Videos/'
+#path_to_videos = 'Videos/'
+path_to_videos = '/Volumes/File Server/Videos/'
+path_to_corrupted = '/Volumes/File Server/Corrupted/'
+path_to_other = '/Volumes/File Server/Other/'
 
 photo_file = str
 paragraph_width = 80
@@ -64,8 +66,8 @@ for n in photos:
             print(f"{TextColours.WARNING}Valid video! Moving to ./Videos ...{TextColours.RESET}")
 
             # BASH command to move video files to ./Videos
-            #bashCommand = "mv -v $path $path_to_videos"
-            #print(bashCommand)
+            bashCommand = "mv -v $path $path_to_videos"
+            print(bashCommand)
             #process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
             #output, error = process.communicate()
 
