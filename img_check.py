@@ -44,8 +44,8 @@ def extract_meta(path, n, valid_image, successful_date_changes):
                     stamp = image.get('datetime_original')
                     bashCommand = 'sudo touch -m ' + stamp + " " + n
                     print(bashCommand)
-                    # process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
-                    # output, error = process.communicate()
+                    process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
+                    output, error = process.communicate()
             else:
                 print(f"Filename:                {n}")
                 print(f"No EXIF information found. No action taken.")
