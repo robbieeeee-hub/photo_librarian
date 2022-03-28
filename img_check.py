@@ -1,5 +1,6 @@
 from exif import Image  # Doesn't play nice with Pillow
 import globals
+import subprocess  # Deals with BASH commands
 
 if __name__ == "__main__":
     globals.initialize()
@@ -53,10 +54,10 @@ def extract_meta(path, n, valid_image, successful_date_changes):
         print(f"{n} could be a {TextColours.FAIL}CORRUPTED FILE!{TextColours.RESET}")
 
         # BASH code to move the corrupted file to ./corrupted
-        bashCommand = 'mv -v $path $path_to_corrupted'
+        bashCommand = "mv -v " + path + " " + globals.path_to_corrupted
         print(bashCommand)
-        # process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
-        # output, error = process.communicate()
+        process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
+        output, error = process.communicate()
 
     return globals.valid_image
     return globals.successful_date_changes

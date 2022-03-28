@@ -23,17 +23,6 @@ class TextColours:
 #############################################################
 # Variables
 
-#path_to_photos = '/home/ubuntu/Scripts/test/'
-#path_to_photos = 'Photos/'
-#path_to_photos = '/home/ubuntu/Samba/Photos/'
-
-#path_to_videos = 'Videos/'
-
-path_to_photos = '/home/ubuntu/Samba/Photos/'
-path_to_videos = '/home/ubuntu/Samba/Videos'
-path_to_corrupted = '/home/ubuntu/Samba/Corrupted/'
-path_to_other = '/home/ubuntu/Samba/Other/'
-
 photo_file = str
 paragraph_width = 80
 
@@ -52,11 +41,11 @@ ruler_underline("=")
 print("Photograph Timestamp to File Creation Time Script")
 ruler_underline("=")
 
-photos = os.listdir(path_to_photos)
+photos = os.listdir(globals.path_to_photos)
 
 for n in photos:
     if '.JPG' in n or '.jpg' in n:
-        path = path_to_photos + n
+        path = globals.path_to_photos + n
 
         if globals.total_files_reviewed != 0:
             ruler_underline("-")
@@ -70,7 +59,7 @@ for n in photos:
             print(f"{TextColours.WARNING}Valid video! Moving to ./Videos ...{TextColours.RESET}")
 
             # BASH command to move video files to ./Videos
-            bashCommand = "mv -v " + path + " " + path_to_videos
+            bashCommand = "mv -v " + path + " " + globals.path_to_videos
             print(bashCommand)
             process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
             output, error = process.communicate()
@@ -79,7 +68,7 @@ for n in photos:
             print(f"{n} is {TextColours.FAIL}possibly NOT a valid video or image!{TextColours.RESET} Moved to ./other")
 
             # BASH code to move to ./other
-            bashCommand = "mv -v " + path + " " + path_to_other
+            bashCommand = "mv -v " + path + " " + globals.path_to_other
             print(bashCommand)
             process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
             output, error = process.communicate()
