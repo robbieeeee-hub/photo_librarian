@@ -29,10 +29,10 @@ class TextColours:
 
 #path_to_videos = 'Videos/'
 
-path_to_photos = '/Volumes/File Server/Photos/'
-path_to_videos = '/Volumes/File Server/Videos/'
-path_to_corrupted = '/Volumes/File Server/Corrupted/'
-path_to_other = '/Volumes/File Server/Other/'
+path_to_photos = '/home/ubuntu/Samba/Photos/'
+path_to_videos = '/home/ubuntu/Samba/Videos/'
+path_to_corrupted = '/home/ubuntu/Samba/Corrupted/'
+path_to_other = '/home/ubuntu/Samba/Other/'
 
 photo_file = str
 paragraph_width = 80
@@ -70,16 +70,16 @@ for n in photos:
             print(f"{TextColours.WARNING}Valid video! Moving to ./Videos ...{TextColours.RESET}")
 
             # BASH command to move video files to ./Videos
-            bashCommand = "mv -v $path $path_to_videos"
+            bashCommand = "#mv -v $path $path_to_videos"
             print(bashCommand)
             #process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
             #output, error = process.communicate()
 
         else:
             print(f"{n} is {TextColours.FAIL}possibly NOT a valid video or image!{TextColours.RESET} Moved to ./other")
-            # BASH code to move to ./other
 
-            bashCommand = "mv -v $path $path_to_other"
+            # BASH code to move to ./other
+            bashCommand = "#mv -v $path $path_to_other"
             print(bashCommand)
             # process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
             # output, error = process.communicate()
