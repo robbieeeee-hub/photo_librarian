@@ -42,7 +42,7 @@ def extract_meta(path, n, valid_image, successful_date_changes):
 
                     # BASH code to timestamp the file
                     stamp = image.get('datetime_original')
-                    bashCommand = 'touch -a -m -t ' + stamp + n
+                    bashCommand = 'sudo touch -m ' + stamp + " " + n
                     print(bashCommand)
                     # process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
                     # output, error = process.communicate()
