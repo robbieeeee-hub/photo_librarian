@@ -70,7 +70,7 @@ for n in photos:
             print(f"{TextColours.WARNING}Valid video! Moving to ./Videos ...{TextColours.RESET}")
 
             # BASH command to move video files to ./Videos
-            bashCommand = "#mv -v $path $path_to_videos"
+            bashCommand = 'mv -v $path $path_to_videos'
             print(bashCommand)
             #process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
             #output, error = process.communicate()
@@ -79,7 +79,7 @@ for n in photos:
             print(f"{n} is {TextColours.FAIL}possibly NOT a valid video or image!{TextColours.RESET} Moved to ./other")
 
             # BASH code to move to ./other
-            bashCommand = "#mv -v $path $path_to_other"
+            bashCommand = 'mv -v $path $path_to_other'
             print(bashCommand)
             # process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
             # output, error = process.communicate()
